@@ -32,8 +32,8 @@ Enemy.prototype.render = function() {
 
 const Player = function() {
 
-    this.x = 100;
-    this.y = 100;
+    this.x = 303;
+    this.y = 505;
 
     this.sprite = 'images/char-boy.png';
 }
@@ -48,13 +48,13 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(arrow) {
     if (arrow === 'left') {
-
+        this.x -= 101;
     } else if (arrow === 'up') {
-
+        this.y += 101;
     } else if (arrow === 'right') {
-
+        this.x += 101;
     } else if (arrow === 'down') {
-
+        this.y -= 101;
     }
 }
 
