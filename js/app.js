@@ -38,6 +38,10 @@ const Player = function() {
     this.sprite = 'images/char-boy.png';
 }
 
+Player.prototype.update = function(dt) {
+    this.x = dt * this.x;
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
