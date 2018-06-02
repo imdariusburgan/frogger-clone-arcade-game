@@ -1,23 +1,31 @@
 // Enemies our player must avoid
-const Enemy = function() {
+const Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
 
-    this.x = 1;
-    this.y = 1;
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    this.x = Math.floor(Math.random() * dt);
+
+    if (Math.round(player.x) ===  Math.round(this.x) && Math.round(player.y) ===  Math.round(this.y)) {
+        console.log('got ya!');
+    }
+
+    // When enemy is off screen, loop him back to beginning of board.
+    if (this.x >500) {
+        this.x = Math.ceil((Math.random() * -300) - 100);
+    }
+    // Move the enemy across the board
+    this.x += 150 * dt;
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -30,16 +38,15 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-const Player = function() {
+const Player = function(x, y) {
 
-    this.x = 303;
-    this.y = 505;
-
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/char-boy.png';
 }
 
 Player.prototype.update = function(dt) {
-    this.x = dt * this.x;
+   // this.x = dt * this.x;
 }
 
 Player.prototype.render = function() {
@@ -47,24 +54,24 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(arrow) {
-    if (arrow === 'left') {
-        this.x -= 101;
-    } else if (arrow === 'up') {
-        this.y += 101;
-    } else if (arrow === 'right') {
-        this.x += 101;
-    } else if (arrow === 'down') {
-        this.y -= 101;
+    if (arrow === 'left' && this.x > 80) {
+        this.x -= 100;
+    } else if (arrow === 'up' && this.y > 30) {
+        this.y -= 90;
+    } else if (arrow === 'right' && this.x < 400) {
+        this.x += 100;
+    } else if (arrow === 'down' && this.y < 400) {
+        this.y += 90;
     }
 }
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const enemy1 = Enemy();
-const enemy2 = Enemy();
-const enemy3 = Enemy();
-const player = Player();
+const enemy1 = new Enemy(0,60);
+const enemy2 = new Enemy(-200, 145);
+const enemy3 = new Enemy(-50, 225,);
+const player = new Player(200, 400);
 const allEnemies = [enemy1, enemy2, enemy3];
 
 
