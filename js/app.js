@@ -49,6 +49,12 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(arrow) {
     if (arrow === 'left') {
 
+    } else if (arrow === 'up') {
+
+    } else if (arrow === 'right') {
+
+    } else if (arrow === 'down') {
+
     }
 }
 
