@@ -79,10 +79,12 @@ Player.prototype.reset = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const enemy1 = new Enemy(0,60, 150);
-const enemy2 = new Enemy(-200, 145, 250);
-const enemy3 = new Enemy(-50, 225, 200);
+const enemy2 = new Enemy(-120, 60, 100);
+const enemy3 = new Enemy(-200, 145, 250);
+const enemy4 = new Enemy(-50, 225, 200);
+const enemy5 = new Enemy(-500, 225, 400);
 const player = new Player(200, 400);
-const allEnemies = [enemy1, enemy2, enemy3];
+const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 
 
 // This listens for key presses and sends the keys to your
