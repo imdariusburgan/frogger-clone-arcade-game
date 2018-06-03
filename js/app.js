@@ -54,10 +54,43 @@ Player.prototype.update = function(dt) {
         player.reset();
     }
 
-    if (currentScore >= 30) {
-       alert('Congratulations you won!')
-       currentScore = 0;
-       scoreboard.innerHTML = currentScore;
+    if (currentScore >= 10) {
+        //alert('Congratulations you won!')
+
+        // Select the modal
+        const modalPopup = document.querySelector('.modal');
+
+        // Select the modal's close button
+        const modalCloseBtn = document.querySelector('.close');
+
+        // Select the modal's paragraph tag
+        const modalParagraph = document.querySelector('p');
+
+         // Add content to modal paragraph
+         modalParagraph.innerHTML = `Congratulations you won!`;
+
+        // Select the restart game button
+        const restartGameModalButton = document.querySelector('.restartbtn');
+
+        // Make modal visible
+        modalPopup.style.display = "block";
+
+        // Close modal
+        const closeModal = () => {
+            modalPopup.style.display = "none";
+        }
+
+        restartGameModalButton.addEventListener('click', () => {
+            location.reload(true);
+        })
+
+        // Close modal when the 'X' is clicked
+        modalCloseBtn.addEventListener('click', () => {
+            closeModal();
+        })
+
+        //currentScore = 0;
+        //scoreboard.innerHTML = currentScore;
     }
 };
 
