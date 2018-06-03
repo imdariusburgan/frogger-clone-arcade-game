@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-const Enemy = function(x, y) {
+const Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -8,6 +8,7 @@ const Enemy = function(x, y) {
 
     this.x = x;
     this.y = y;
+    this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -21,13 +22,13 @@ Enemy.prototype.update = function(dt) {
         player.y = 400;
     }
 
+    // Updates the enemy's location
+    this.x += this.speed * dt;
+
     // When enemy is off screen, loop him back to beginning of board.
     if (this.x >505) {
         this.x = Math.ceil((Math.random() * -300) - 100);
     }
-
-    // Move the enemy across the board
-    this.x += 200 * dt;
 
 };
 
@@ -64,12 +65,11 @@ Player.prototype.handleInput = function(arrow) {
     }
 }
 
-// Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const enemy1 = new Enemy(0,60);
-const enemy2 = new Enemy(-200, 145);
-const enemy3 = new Enemy(-50, 225,);
+const enemy1 = new Enemy(0,60, 150);
+const enemy2 = new Enemy(-200, 145, 250);
+const enemy3 = new Enemy(-50, 225, 200);
 const player = new Player(200, 400);
 const allEnemies = [enemy1, enemy2, enemy3];
 
