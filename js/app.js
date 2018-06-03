@@ -15,12 +15,12 @@ const Enemy = function(x, y) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
 
-    if (Math.round(player.x) ===  Math.round(this.x) && Math.round(player.y) ===  Math.round(this.y)) {
+    if (Math.round(player.x) === Math.round(this.x) && Math.round(player.y) === Math.round(this.y)) {
         console.log('got ya!');
     }
 
     // When enemy is off screen, loop him back to beginning of board.
-    if (this.x >500) {
+    if (this.x >505) {
         this.x = Math.ceil((Math.random() * -300) - 100);
     }
     // Move the enemy across the board
@@ -56,13 +56,18 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(arrow) {
     if (arrow === 'left' && this.x > 80) {
         this.x -= 100;
-    } else if (arrow === 'up' && this.y > 30) {
+    } else if (arrow === 'up' && this.y > 20) {
         this.y -= 90;
     } else if (arrow === 'right' && this.x < 400) {
         this.x += 100;
-    } else if (arrow === 'down' && this.y < 400) {
+    } else if (arrow === 'down' && this.y < 350) {
         this.y += 90;
     }
+}
+
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 300;
 }
 
 // Now instantiate your objects.
@@ -71,7 +76,7 @@ Player.prototype.handleInput = function(arrow) {
 const enemy1 = new Enemy(0,60);
 const enemy2 = new Enemy(-200, 145);
 const enemy3 = new Enemy(-50, 225,);
-const player = new Player(200, 400);
+const player = new Player(200, 300);
 const allEnemies = [enemy1, enemy2, enemy3];
 
 
