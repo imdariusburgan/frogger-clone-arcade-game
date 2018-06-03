@@ -1,6 +1,7 @@
-// Select score number
+// Select score holder HTML element
 const scoreboard = document.querySelector('.score');
-console.log(scoreboard);
+
+// Variable for holding current score
 let currentScore = 0;
 
 // Enemies the player must avoid
@@ -17,6 +18,8 @@ Enemy.prototype.update = function(dt) {
 
     // Player collision
     if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
+        currentScore -= 5;
+        scoreboard.innerHTML = currentScore;
         player.reset();
     }
 
@@ -46,7 +49,7 @@ const Player = function(x, y) {
 Player.prototype.update = function(dt) {
     // Reset player once he reaches water
     if (player.y < 20) {
-        currentScore += 1;
+        currentScore += 10;
         scoreboard.innerHTML = currentScore;
         player.reset();
     }
