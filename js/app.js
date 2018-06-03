@@ -18,7 +18,9 @@ Enemy.prototype.update = function(dt) {
 
     // Player collision
     if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
-        currentScore -= 5;
+        if (currentScore > 0) {
+            currentScore -= 5;
+        }
         scoreboard.innerHTML = currentScore;
         player.reset();
     }
@@ -54,7 +56,7 @@ Player.prototype.update = function(dt) {
         player.reset();
     }
 
-    if (currentScore >= 10) {
+    if (currentScore >= 30) {
         //alert('Congratulations you won!')
 
         // Select the modal
