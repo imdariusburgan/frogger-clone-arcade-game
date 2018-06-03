@@ -1,11 +1,10 @@
-// Enemies our player must avoid
+// Select score number
+const scoreboard = document.querySelector('.score');
+console.log(scoreboard);
+let currentScore = 0;
+
+// Enemies the player must avoid
 const Enemy = function(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-
     this.x = x;
     this.y = y;
     this.speed = speed;
@@ -47,6 +46,8 @@ const Player = function(x, y) {
 Player.prototype.update = function(dt) {
     // Reset player once he reaches water
     if (player.y < 20) {
+        currentScore += 1;
+        scoreboard.innerHTML = currentScore;
         player.reset();
     }
 };
