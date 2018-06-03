@@ -15,16 +15,19 @@ const Enemy = function(x, y) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
 
-    if (Math.round(player.x) === Math.round(this.x) && Math.round(player.y) === Math.round(this.y)) {
-        console.log('got ya!');
+    // Player collision
+    if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
+        player.x = 200;
+        player.y = 400;
     }
 
     // When enemy is off screen, loop him back to beginning of board.
     if (this.x >505) {
         this.x = Math.ceil((Math.random() * -300) - 100);
     }
+
     // Move the enemy across the board
-    this.x += 150 * dt;
+    this.x += 200 * dt;
 
 };
 
@@ -33,11 +36,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
+// Player class
 const Player = function(x, y) {
 
     this.x = x;
@@ -65,18 +64,13 @@ Player.prototype.handleInput = function(arrow) {
     }
 }
 
-Player.prototype.reset = function() {
-    this.x = 200;
-    this.y = 300;
-}
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const enemy1 = new Enemy(0,60);
 const enemy2 = new Enemy(-200, 145);
 const enemy3 = new Enemy(-50, 225,);
-const player = new Player(200, 300);
+const player = new Player(200, 400);
 const allEnemies = [enemy1, enemy2, enemy3];
 
 
