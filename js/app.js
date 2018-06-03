@@ -53,6 +53,12 @@ Player.prototype.update = function(dt) {
         scoreboard.innerHTML = currentScore;
         player.reset();
     }
+
+    if (currentScore >= 30) {
+       alert('Congratulations you won!')
+       currentScore = 0;
+       scoreboard.innerHTML = currentScore;
+    }
 };
 
 Player.prototype.render = function() {
