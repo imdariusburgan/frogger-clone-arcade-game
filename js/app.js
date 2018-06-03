@@ -18,8 +18,7 @@ Enemy.prototype.update = function(dt) {
 
     // Player collision
     if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
-        player.x = 200;
-        player.y = 400;
+        player.reset();
     }
 
     // Updates the enemy's location
@@ -48,8 +47,7 @@ const Player = function(x, y) {
 Player.prototype.update = function(dt) {
     // Reset player once he reaches water
     if (player.y < 20) {
-        player.x = 200;
-        player.y = 400;
+        player.reset();
     }
 };
 
