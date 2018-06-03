@@ -46,7 +46,11 @@ const Player = function(x, y) {
 }
 
 Player.prototype.update = function(dt) {
-   // this.x = dt * this.x;
+    // Reset player once he reaches water
+    if (player.y < 20) {
+        player.x = 200;
+        player.y = 400;
+    }
 }
 
 Player.prototype.render = function() {
@@ -64,6 +68,8 @@ Player.prototype.handleInput = function(arrow) {
         this.y += 90;
     }
 }
+
+
 
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
