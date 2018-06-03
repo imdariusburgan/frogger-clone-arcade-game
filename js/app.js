@@ -43,7 +43,7 @@ const Player = function(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
-}
+};
 
 Player.prototype.update = function(dt) {
     // Reset player once he reaches water
@@ -51,7 +51,7 @@ Player.prototype.update = function(dt) {
         player.x = 200;
         player.y = 400;
     }
-}
+};
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -67,9 +67,12 @@ Player.prototype.handleInput = function(arrow) {
     } else if (arrow === 'down' && this.y < 350) {
         this.y += 90;
     }
-}
+};
 
-
+Player.prototype.reset = function() {
+    player.x = 200;
+    player.y = 400;
+};
 
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
