@@ -1,6 +1,3 @@
-// Select score holder HTML element
-const scoreboard = document.querySelector('.score');
-
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
     // Starting location variables
@@ -115,7 +112,9 @@ Player.prototype.handleInput = function(arrow) {
 
 // Function that updates the score
 Player.prototype.updateScoreboard = function() {
-   scoreboard.innerHTML = this.currentScore;
+    const scoreboard = document.querySelector('.score');
+
+    scoreboard.innerHTML = this.currentScore;
 }
 
 Player.prototype.reset = function() {
