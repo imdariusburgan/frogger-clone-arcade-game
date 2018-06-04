@@ -20,8 +20,8 @@ Enemy.prototype.update = function(dt) {
 
     // If enemy hits player, decrease score by 5, update score on screen, and reset player to starting locations
     if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
-        if (currentScore > 0) {
-            currentScore -= 5;
+        if (player.currentScore > 0) {
+            player.currentScore -= 5;
         }
         player.updateScoreboard();
         player.reset();
@@ -58,13 +58,13 @@ const Player = function(x, y) {
 Player.prototype.update = function(dt) {
     // Once player reaches water, add 10 points to his score, and then reset his position
     if (this.y < 20) {
-        currentScore += 10;
+        player.currentScore += 10;
         this.updateScoreboard();
         this.reset();
     }
 
     // Modal congratulating player once he wins the game (30 points)
-    if (currentScore >= 30) {
+    if (player.currentScore >= 30) {
         //alert('Congratulations you won!')
 
         // Select the modal
@@ -93,9 +93,6 @@ Player.prototype.update = function(dt) {
         restartGameModalButton.addEventListener('click', () => {
             location.reload(true);
         })
-
-        //currentScore = 0;
-        //scoreboard.innerHTML = currentScore;
     }
 };
 
@@ -118,7 +115,7 @@ Player.prototype.handleInput = function(arrow) {
 
 // Function that updates the score
 Player.prototype.updateScoreboard = function() {
-    const updateScore = () => { scoreboard.innerHTML = currentScore; }
+    const updateScore = () => { scoreboard.innerHTML = player.currentScore; }
 }
 
 Player.prototype.reset = function() {
