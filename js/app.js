@@ -89,11 +89,6 @@ Player.prototype.update = function(dt) {
             location.reload(true);
         })
 
-        // Close modal when the 'X' is clicked
-        modalCloseBtn.addEventListener('click', () => {
-            closeModal();
-        })
-
         //currentScore = 0;
         //scoreboard.innerHTML = currentScore;
     }
