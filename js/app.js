@@ -52,13 +52,14 @@ const Player = function(x, y) {
 };
 
 Player.prototype.update = function(dt) {
-    // Reset player once he reaches water
+    // Once player reaches water, add 10 points to his score, and then reset his position
     if (player.y < 20) {
         currentScore += 10;
         updateScore();
         player.reset();
     }
 
+    // Modal congratulating player once he wins the game (30 points)
     if (currentScore >= 30) {
         //alert('Congratulations you won!')
 
