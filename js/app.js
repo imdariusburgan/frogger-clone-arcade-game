@@ -1,9 +1,6 @@
 // Select score holder HTML element
 const scoreboard = document.querySelector('.score');
 
-// Variable for holding current score
-let currentScore = 0;
-
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
     // Starting location variables
@@ -50,6 +47,9 @@ const Player = function(x, y) {
     // Player starting location
     this.x = x;
     this.y = y;
+
+    // Variable for keeping score
+    let currentScore = 0;
 
     // Player graphic
     this.sprite = 'images/char-boy.png';
