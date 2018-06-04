@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
         if (currentScore > 0) {
             currentScore -= 5;
         }
-        scoreboard.innerHTML = currentScore;
+        updateScore();
         player.reset();
     }
 
@@ -55,7 +55,7 @@ Player.prototype.update = function(dt) {
     // Reset player once he reaches water
     if (player.y < 20) {
         currentScore += 10;
-        scoreboard.innerHTML = currentScore;
+        updateScore();
         player.reset();
     }
 
