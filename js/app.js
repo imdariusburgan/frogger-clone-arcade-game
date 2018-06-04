@@ -4,6 +4,9 @@ const scoreboard = document.querySelector('.score');
 // Variable for holding current score
 let currentScore = 0;
 
+// Function that updates the score
+const updateScore = () => { scoreboard.innerHTML = currentScore; }
+
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
     this.x = x;
