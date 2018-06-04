@@ -59,8 +59,8 @@ Player.prototype.update = function(dt) {
     // Once player reaches water, add 10 points to his score, and then reset his position
     if (this.y < 20) {
         currentScore += 10;
-        player.updateScoreboard();
-        player.reset();
+        this.updateScoreboard();
+        this.reset();
     }
 
     // Modal congratulating player once he wins the game (30 points)
@@ -123,8 +123,8 @@ Player.prototype.updateScoreboard = function() {
 
 Player.prototype.reset = function() {
     // Changes player's location
-    player.x = 200;
-    player.y = 400;
+    this.x = 200;
+    this.y = 400;
 };
 
 // Place all enemy objects in an array called allEnemies
