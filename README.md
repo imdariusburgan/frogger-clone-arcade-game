@@ -11,5 +11,9 @@ This game is a remake of frogger using a human player and bugs instead of cars
 4. Once your score has reached 30, you will win the game.
 5. But beware, getting hit by a bug will reduce your score.
 
+## Resources
+1. The code for the 'congratulations, you win' modal was taken from [https://github.com/imdariusburgan/memory-card-game](https://github.com/imdariusburgan/memory-card-game)
+2. Starter code, such as the game engine was provided by [Udacity](https://www.udacity.com/)
+
 ## License
 This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT)
