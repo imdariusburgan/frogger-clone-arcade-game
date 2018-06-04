@@ -10,3 +10,6 @@ This game is a remake of frogger using a human player and bugs instead of cars
 3. Get your player across the road and to the water without getting hit by bugs.
 4. Once your score has reached 30, you will win the game.
 5. But beware, getting hit by a bug will reduce your score.
+
+## License
+This repository is licensed under the [MIT License](https://opensource.org/licenses/MIT)
