@@ -49,7 +49,7 @@ const Player = function(x, y) {
     this.y = y;
 
     // Variable for keeping score
-    let currentScore = 0;
+    this.currentScore = 0;
 
     // Player graphic
     this.sprite = 'images/char-boy.png';
@@ -58,13 +58,13 @@ const Player = function(x, y) {
 Player.prototype.update = function(dt) {
     // Once player reaches water, add 10 points to his score, and then reset his position
     if (this.y < 20) {
-        player.currentScore += 10;
+        this.currentScore += 10;
         this.updateScoreboard();
         this.reset();
     }
 
     // Modal congratulating player once he wins the game (30 points)
-    if (player.currentScore >= 30) {
+    if (this.currentScore >= 30) {
         //alert('Congratulations you won!')
 
         // Select the modal
@@ -115,7 +115,7 @@ Player.prototype.handleInput = function(arrow) {
 
 // Function that updates the score
 Player.prototype.updateScoreboard = function() {
-    const updateScore = () => { scoreboard.innerHTML = player.currentScore; }
+   scoreboard.innerHTML = this.currentScore;
 }
 
 Player.prototype.reset = function() {
