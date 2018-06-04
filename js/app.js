@@ -26,7 +26,7 @@ Enemy.prototype.update = function(dt) {
         if (currentScore > 0) {
             currentScore -= 5;
         }
-        updateScore();
+        player.updateScoreboard();
         player.reset();
     }
 
@@ -57,9 +57,9 @@ const Player = function(x, y) {
 
 Player.prototype.update = function(dt) {
     // Once player reaches water, add 10 points to his score, and then reset his position
-    if (player.y < 20) {
+    if (this.y < 20) {
         currentScore += 10;
-        updateScore();
+        player.updateScoreboard();
         player.reset();
     }
 
