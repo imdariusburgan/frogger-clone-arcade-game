@@ -9,9 +9,14 @@ const updateScore = () => { scoreboard.innerHTML = currentScore; }
 
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
+    // Starting location variables
     this.x = x;
     this.y = y;
+
+    // How fast the enemy will move
     this.speed = speed;
+
+    //Enemy graphic
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -19,7 +24,7 @@ const Enemy = function(x, y, speed) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
 
-    // Player collision
+    // If enemy hits player, decrease score by 5, update score on screen, and reset player to starting locations
     if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
         if (currentScore > 0) {
             currentScore -= 5;
@@ -28,11 +33,11 @@ Enemy.prototype.update = function(dt) {
         player.reset();
     }
 
-    // Updates the enemy's location
+    // Moves the enemy across the screen
     this.x += this.speed * dt;
 
     // When enemy is off screen, loop him back to beginning of board.
-    if (this.x >505) {
+    if (this.x > 505) {
         this.x = Math.ceil((Math.random() * -300) - 100);
     }
 
@@ -45,9 +50,11 @@ Enemy.prototype.render = function() {
 
 // Player class
 const Player = function(x, y) {
-
+    // Player starting location
     this.x = x;
     this.y = y;
+
+    // Player graphic
     this.sprite = 'images/char-boy.png';
 };
 
@@ -100,6 +107,7 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(arrow) {
+    // Moves the player based on keyboard arrow pressed. Also prevents the player from being moved off screen
     if (arrow === 'left' && this.x > 80) {
         this.x -= 100;
     } else if (arrow === 'up' && this.y > 20) {
@@ -112,6 +120,7 @@ Player.prototype.handleInput = function(arrow) {
 };
 
 Player.prototype.reset = function() {
+    // Changes player's location
     player.x = 200;
     player.y = 400;
 };
