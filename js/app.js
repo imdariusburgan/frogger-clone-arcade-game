@@ -1,3 +1,5 @@
+'use strict';
+
 // Superclass for any object that can move across the board
 class MovableThing{
     constructor(x, y) {
