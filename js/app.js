@@ -11,6 +11,12 @@ class MovableThing{
     }
 }
 
+class Enemy extends MovableThing{
+    constructor(x, y, spriteURL, speed){
+        super(x, y, spriteURL);
+        this.speed = speed;
+    }
+}
 
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
