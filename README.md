@@ -22,7 +22,7 @@ This game is a remake of frogger using a human player and bugs instead of cars
 ## How to add or remove enemies
 1. Add enemies by adding this line (fill in the placeholder text with numbers) after line 126 in js/app.js -> 
 
->```const uniqueNamePlaceholder = new Enemy(starting horizontal location placeholder, starting vertical location placeholder (choose 60, 145, or 225), enemy movement speed placeholder ); ``` 
+```const uniqueNamePlaceholder = new Enemy(starting horizontal location placeholder, starting vertical location placeholder (choose 60, 145, or 225), enemy movement speed placeholder ); ``` 
 
 Then add the variable's unique name to the allEnemies array.
 
