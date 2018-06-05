@@ -1,9 +1,8 @@
 // Superclass for any object that can move across the board
 class MovableThing{
-    constructor(x, y, spriteURL) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.sprite = spriteURL;
     }
 
     render() {
@@ -13,7 +12,8 @@ class MovableThing{
 
 class Enemy extends MovableThing{
     constructor(x, y, spriteURL, speed){
-        super(x, y, spriteURL);
+        super(x, y);
+        this.spriteURL = 'images/enemy-bug.png';
         this.speed = speed;
     }
 
@@ -35,8 +35,16 @@ class Enemy extends MovableThing{
             this.x = Math.ceil((Math.random() * -300) - 100);
         }
     }
+
 }
 
+class Player extends MovableThing{
+    constructor(x, y, spriteURL){
+
+    }
+}
+
+/*
 // Enemies the player must avoid
 const Enemy = function(x, y, speed) {
     // Starting location variables
@@ -76,7 +84,7 @@ Enemy.prototype.update = function(dt) {
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+};*/
 
 // Player class
 const Player = function(x, y) {
