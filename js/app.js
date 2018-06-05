@@ -14,7 +14,7 @@ class Enemy extends MovableThing{
     constructor(x, y, speed){
         super(x, y);
         this.speed = speed; // How fast the character will move
-        this.spriteURL = 'images/enemy-bug.png'; // Charavter image
+        this.sprite = 'images/enemy-bug.png'; // Charavter image
     }
 
     update(dt){
@@ -42,7 +42,7 @@ class Player extends MovableThing{
     constructor(x, y){
         super(x, y);
         this.currentScore = 0; // Variable for keeping score
-        this.spriteURL = 'images/char-boy.png'; // Character image
+        this.sprite = 'images/char-boy.png'; // Character image
     }
 
     update(dt){
