@@ -42,6 +42,7 @@ class Enemy extends MovableThing{
 
 }
 
+// The player
 class Player extends MovableThing{
     constructor(x, y){
         super(x, y);
