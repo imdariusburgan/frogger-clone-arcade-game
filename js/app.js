@@ -13,8 +13,8 @@ class MovableThing{
 class Enemy extends MovableThing{
     constructor(x, y, speed){
         super(x, y);
-        this.speed = speed;
-        this.spriteURL = 'images/enemy-bug.png';
+        this.speed = speed; // How fast the character will move
+        this.spriteURL = 'images/enemy-bug.png'; // Charavter image
     }
 
     update(dt){
@@ -41,7 +41,74 @@ class Enemy extends MovableThing{
 class Player extends MovableThing{
     constructor(x, y){
         super(x, y);
-        this.spriteURL = 'images/char-boy.png';
+        this.currentScore = 0; // Variable for keeping score
+        this.spriteURL = 'images/char-boy.png'; // Character image
+    }
+
+    update(dt){
+        // Once player reaches water, add 10 points to his score, and then reset his position
+        if (this.y < 20) {
+            this.currentScore += 10;
+            this.updateScoreboard();
+            this.reset();
+        }
+
+        // Modal congratulating player once he wins the game (30 points)
+        if (this.currentScore >= 30) {
+            //alert('Congratulations you won!')
+
+            // Select the modal
+            const modalPopup = document.querySelector('.modal');
+
+            // Select the modal's close button
+            const modalCloseBtn = document.querySelector('.close');
+
+            // Select the modal's paragraph tag
+            const modalParagraph = document.querySelector('p');
+
+            // Add content to modal paragraph
+            modalParagraph.innerHTML = `Congratulations you won!`;
+
+            // Select the restart game button
+            const restartGameModalButton = document.querySelector('.restartbtn');
+
+            // Make modal visible
+            modalPopup.style.display = "block";
+
+            // Close modal
+            const closeModal = () => {
+                modalPopup.style.display = "none";
+            }
+
+            restartGameModalButton.addEventListener('click', () => {
+                location.reload(true);
+            })
+        }
+    }
+
+    handleInput(arrow){
+        // Moves the player based on keyboard arrow pressed. Also prevents the player from being moved off screen
+        if (arrow === 'left' && this.x > 80) {
+            this.x -= 100;
+        } else if (arrow === 'up' && this.y > 20) {
+            this.y -= 90;
+        } else if (arrow === 'right' && this.x < 400) {
+            this.x += 100;
+        } else if (arrow === 'down' && this.y < 350) {
+            this.y += 90;
+        }
+    }
+
+    updateScoreboard(){
+        const scoreboard = document.querySelector('.score');
+
+        scoreboard.innerHTML = this.currentScore;
+    }    
+
+    reset(){
+        // Changes player's location
+        this.x = 200;
+        this.y = 400;
     }
 }
 
@@ -87,6 +154,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };*/
 
+/*
 // Player class
 const Player = function(x, y) {
     // Player starting location
@@ -170,6 +238,7 @@ Player.prototype.reset = function() {
     this.x = 200;
     this.y = 400;
 };
+*/
 
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
