@@ -11,10 +11,10 @@ class MovableThing{
 }
 
 class Enemy extends MovableThing{
-    constructor(x, y, spriteURL, speed){
+    constructor(x, y, speed){
         super(x, y);
-        this.spriteURL = 'images/enemy-bug.png';
         this.speed = speed;
+        this.spriteURL = 'images/enemy-bug.png';
     }
 
     update(dt){
@@ -39,8 +39,9 @@ class Enemy extends MovableThing{
 }
 
 class Player extends MovableThing{
-    constructor(x, y, spriteURL){
-
+    constructor(x, y){
+        super(x, y);
+        this.spriteURL = 'images/char-boy.png';
     }
 }
 
