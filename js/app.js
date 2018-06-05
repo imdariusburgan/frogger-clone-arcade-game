@@ -16,6 +16,25 @@ class Enemy extends MovableThing{
         super(x, y, spriteURL);
         this.speed = speed;
     }
+
+    update(dt){
+        // If enemy hits player, decrease score by 5, update score on screen, and reset player to starting locations
+        if (Math.abs(player.x - this.x) < 50 && Math.abs(player.y - this.y) < 50) {
+            if (player.currentScore > 0) {
+                player.currentScore -= 5;
+            }
+            player.updateScoreboard();
+            player.reset();
+        }
+    
+        // Moves the enemy across the screen
+        this.x += this.speed * dt;
+    
+        // When enemy is off screen, loop him back to beginning of board.
+        if (this.x > 505) {
+            this.x = Math.ceil((Math.random() * -300) - 100);
+        }
+    }
 }
 
 // Enemies the player must avoid
