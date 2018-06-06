@@ -82,11 +82,11 @@ class Player extends MovableThing{
             // Close modal
             const closeModal = () => {
                 modalPopup.style.display = "none";
-            }
+            };
 
             restartGameModalButton.addEventListener('click', () => {
                 location.reload(true);
-            })
+            });
         }
     }
 
