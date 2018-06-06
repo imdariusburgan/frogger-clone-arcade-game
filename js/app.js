@@ -1,3 +1,5 @@
+'use strict';
+
 // Superclass for any object that can move across the board
 class MovableThing{
     constructor(x, y) {
@@ -64,9 +66,6 @@ class Player extends MovableThing{
 
             // Select the modal
             const modalPopup = document.querySelector('.modal');
-
-            // Select the modal's close button
-            const modalCloseBtn = document.querySelector('.close');
 
             // Select the modal's paragraph tag
             const modalParagraph = document.querySelector('p');
